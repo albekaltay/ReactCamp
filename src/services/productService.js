@@ -2,6 +2,11 @@ import axios from "axios";
 
 export default class ProductService{
     getProducts(){
-        return axios.get("http://localhost:3000/products")
+        return axios.get("https://localhost:44314/api/products/getall")
+
+
+    }
+    getProductsById(productId){
+        return axios.get("https://localhost:44314/api/products/getbyid?id="+productId)
     }
 }

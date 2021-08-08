@@ -3,6 +3,9 @@ import {Button, Container, Grid, GridColumn, GridRow, Icon, Label} from "semanti
 import Categories from "./Categories";
 import Navi from "./Navi";
 import ProductList from "../pages/ProductList";
+import {Route} from "react-router";
+import ProductDetail from "../pages/ProductDetail";
+import CartDetail from "../pages/CartDetail";
 
 function Dashboard() {
     return (
@@ -17,7 +20,10 @@ function Dashboard() {
                         <Categories></Categories>
                     </Grid.Column>
                     <Grid.Column width={12}>
-                        <ProductList></ProductList>
+                        <Route exact path="/" component={ProductList}></Route>
+                        <Route exact path="/products" component={ProductList}></Route>
+                        <Route path="/products/:id" component={ProductDetail}></Route>
+                        <Route path="/cart-detail" component={CartDetail}></Route>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

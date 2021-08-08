@@ -1,14 +1,22 @@
 import React from 'react';
-import {Dropdown} from "semantic-ui-react";
+import {Button, Dropdown, DropdownItem, Icon, Label} from "semantic-ui-react";
+import {NavLink} from "react-router-dom";
 
 function CartSummary() {
     return (
         <div>
-            <Dropdown item text='Language'>
+            <Dropdown style={{marginTop: '0.5em'}} item text='Sepetiniz'>
                 <Dropdown.Menu>
-                    <Dropdown.Item>English</Dropdown.Item>
-                    <Dropdown.Item>Russian</Dropdown.Item>
-                    <Dropdown.Item>Spanish</Dropdown.Item>
+                    <Dropdown.Item>Acer Laptop</Dropdown.Item>
+                    <Dropdown.Item>Asus Laptop</Dropdown.Item>
+
+                    <Dropdown.Divider></Dropdown.Divider>
+
+
+                    <Dropdown.Item as={NavLink} to="/cart-detail"> <Icon name='shopping cart'/> Sepete
+                        Git</Dropdown.Item>
+
+
                 </Dropdown.Menu>
             </Dropdown>
 

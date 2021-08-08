@@ -1,20 +1,28 @@
 import React, {useEffect, useState} from 'react';
-import {Container, Icon, Label, Menu, Table} from "semantic-ui-react";
+import {Button, Container, Icon, Label, Menu, Table} from "semantic-ui-react";
 import ProductService from "../services/productService";
+import {Link} from "react-router-dom";
+
 
 function ProductList() {
 
     const [products , setProducts] = useState([]);
 
     useEffect(() => {
+
+
         let productService = new ProductService()
-        productService.getProducts().then(result => setProducts(result.data))
-        }
+        productService.getProducts().then( result => setProducts(result.data.data))
+        },[]
 
     )
-    
-    return (
+
+
+
+        return (
         <div>
+
+
 
             <Table celled>
                 <Table.Header>
@@ -22,7 +30,7 @@ function ProductList() {
                         <Table.HeaderCell>Ürün Adı</Table.HeaderCell>
                         <Table.HeaderCell>Birim Fiyatı</Table.HeaderCell>
                         <Table.HeaderCell>Stok Adedi</Table.HeaderCell>
-                        <Table.HeaderCell>Açıklama</Table.HeaderCell>
+
                         <Table.HeaderCell>Kategori</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
@@ -31,13 +39,13 @@ function ProductList() {
 
                     {
                         products.map(product => (
-                            <Table.Row key={product.productID}>
+                            <Table.Row key={product.productId}>
 
-                                <Table.Cell>{product.name}</Table.Cell>
+                                <Table.Cell><Link to={`/products/${product.productId}`}>{product.productName} </Link></Table.Cell>
                                 <Table.Cell>{product.unitPrice}</Table.Cell>
                                 <Table.Cell>{product.unitsInStock}</Table.Cell>
-                                <Table.Cell>{product.quantityPerUnit}</Table.Cell>
-                                <Table.Cell>{product.categoryID}</Table.Cell>
+
+                                <Table.Cell>{product.categoryId}</Table.Cell>
 
                             </Table.Row>
                         ) )
@@ -73,3 +81,6 @@ function ProductList() {
 }
 
 export default ProductList;
+
+
+
