@@ -13,8 +13,8 @@ function SignedIn({signOut}) {
 
 
                     <Dropdown.Menu style={{marginTop:"1.2em" , marginLeft:"1em"}} >
-                        <Dropdown.Item text="Bilgilerim" icon="info"></Dropdown.Item>
-                        <Dropdown.Item onClick={signOut} text="Çıkış Yap" icon="sign-out"></Dropdown.Item>
+                        <Dropdown.Item text="My Information" icon="info"></Dropdown.Item>
+                        <Dropdown.Item onClick={signOut} text="Sign Out" icon="sign-out"></Dropdown.Item>
                     </Dropdown.Menu>
 
                 </Dropdown>

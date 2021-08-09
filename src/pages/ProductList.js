@@ -2,9 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {Button, Container, Icon, Label, Menu, Table} from "semantic-ui-react";
 import ProductService from "../services/productService";
 import {Link} from "react-router-dom";
-
+import {useDispatch} from "react-redux";
+import {addToCart} from "../store/actions/cartActions";
+import {toast} from "react-toastify"
 
 function ProductList() {
+
+    const dispatch = useDispatch()
 
     const [products , setProducts] = useState([]);
 
@@ -18,6 +22,12 @@ function ProductList() {
     )
 
 
+    const handleAddToCart = (product) => {
+
+        dispatch(addToCart(product))
+        toast.success(`${product.productName} Added To Cart.`)
+    }
+
 
         return (
         <div>
@@ -27,11 +37,13 @@ function ProductList() {
             <Table celled>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Ürün Adı</Table.HeaderCell>
-                        <Table.HeaderCell>Birim Fiyatı</Table.HeaderCell>
-                        <Table.HeaderCell>Stok Adedi</Table.HeaderCell>
+                        <Table.HeaderCell>Product Name</Table.HeaderCell>
+                        <Table.HeaderCell>Unit Price</Table.HeaderCell>
+                        <Table.HeaderCell>Stock Quantity</Table.HeaderCell>
 
-                        <Table.HeaderCell>Kategori</Table.HeaderCell>
+                        <Table.HeaderCell>Category</Table.HeaderCell>
+                        <Table.HeaderCell>Add To Cart</Table.HeaderCell>
+
                     </Table.Row>
                 </Table.Header>
 
@@ -46,6 +58,7 @@ function ProductList() {
                                 <Table.Cell>{product.unitsInStock}</Table.Cell>
 
                                 <Table.Cell>{product.categoryId}</Table.Cell>
+                                <Table.Cell><center><Button onClick={() => handleAddToCart(product)} primary>Add</Button></center></Table.Cell>
 
                             </Table.Row>
                         ) )
