@@ -29,9 +29,10 @@ function ProductDetail() {
                         />
                         <Card.Header>{product.productName}</Card.Header>
                         <br/>
-                        <Card.Meta >Fiyat: {product.unitPrice} $</Card.Meta>
+                        <Card.Meta >Price: {product.unitPrice} $</Card.Meta>
                         <br/>
-                        <Card.Description style={{marginRight: '3em'}}>Stokta <strong>{product.unitsInStock}</strong> adet kaldı!!
+                        <Card.Description style={{marginRight: '3em'}}> <strong>{product.unitsInStock + " "}</strong>
+                             Left In Stock!!
                         </Card.Description>
                     </Card.Content>
                     <Card.Content extra>

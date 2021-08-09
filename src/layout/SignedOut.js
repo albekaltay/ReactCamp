@@ -6,8 +6,8 @@ function SignedOut({signIn}) {
         <div>
 
 
-            <Button onClick={signIn} primary className="buttonStyle1">Signed In</Button>
-            <Button primary className="buttonStyle2">Create An Account</Button>
+            <Button onClick={signIn} primary className="buttonStyle1">Sign In</Button>
+            <Button primary className="buttonStyle2">Sign Up</Button>
 
         </div>
     );

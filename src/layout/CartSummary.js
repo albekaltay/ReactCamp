@@ -17,7 +17,7 @@ function CartSummary() {
 
                             <Dropdown.Item>
                                 {cartItem.product.productName}
-                                <Label
+                                <Label color="blue"
                                     style={{marginLeft: "1.5em"}}>{cartItem.quantity}
                                 </Label>
                             </Dropdown.Item>
